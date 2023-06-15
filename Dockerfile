@@ -1,6 +1,9 @@
 FROM debian:unstable-slim as builder
+# "apt-mark hold dash" is a temporary workaround due to dash/0.5.12-2
+# to dash/0.5.12-4 update which results in a dpkg failure (in dist-upgrade)
 # hadolint ignore=DL3005,DL3008
 RUN apt-get update && \
+    apt-mark hold dash && \
     apt-get dist-upgrade -y && \
     apt-get install git libnl-3-dev libnl-genl-3-dev libssl-dev gcc libpcsclite-dev \
                     make libc6-dev libsqlite3-dev pkg-config libnl-route-3-dev \
