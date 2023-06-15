@@ -32,6 +32,7 @@ RUN make
 FROM debian:unstable-slim
 # hadolint ignore=DL3005,DL3008
 RUN apt-get update && \
+    apt-mark hold dash && \
     apt-get dist-upgrade -y && \
     apt-get install libnl-3-200 libnl-genl-3-200 libnl-route-3-200 libdbus-1-3 \
                     libssl3 libsqlite3-0 pcscd libreadline8 -y --no-install-recommends && \
