@@ -49,7 +49,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          platforms: linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/riscv64,linux/s390x,linux/mips64le
+          platforms: linux/386,linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/riscv64,linux/s390x,linux/mips64le
+          #,linux/arm/v5
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             finchsec/hostapd:latest
