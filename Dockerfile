@@ -31,7 +31,7 @@ FROM debian:unstable-slim
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install libnl-3-200 libnl-genl-3-200 libnl-route-3-200 libdbus-1-3 \
-                    libssl3 libsqlite3-0 pcscd libreadline8 -y --no-install-recommends && \
+                    libssl3t64 libsqlite3-0 pcscd libreadline8 -y --no-install-recommends && \
     rm -rf /var/lib/dpkg/status-old /var/lib/apt/lists/*
 COPY --from=builder /hostap/hostapd/hostapd /usr/local/bin/
 COPY --from=builder /hostap/hostapd/hostapd_cli /usr/local/bin/
